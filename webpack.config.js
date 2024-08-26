@@ -7,6 +7,7 @@ module.exports = {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
+    publicPath: '/',
   },
   module: {
     rules: [
@@ -29,5 +30,10 @@ module.exports = {
     }),
   ],
   mode: 'development',
-  devtool: 'inline-source-map',
+  devServer: {
+    static: path.resolve(__dirname, 'dist'),
+    hot: true, // Enable Hot Module Replacement
+    open: true, // Automatically open the browser
+    watchFiles: ['src/**/*.js', 'src/**/*.css', 'src/**/*.html'], // Watch these files for changes
+  },
 };
