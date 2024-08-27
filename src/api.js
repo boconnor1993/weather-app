@@ -1,4 +1,4 @@
-import { updateTemp } from "./domUpdate.js";
+import { updateCity, updateTemp } from './domUpdate.js';
 
 const API_KEY = 'BLVN7UBD9D84327ZGAZPAJWBG';
 
@@ -17,6 +17,7 @@ export async function getWeather(city = 'Brisbane', unitGroup = 'metric') {
 
     const data = await response.json();
     updateTemp(data.currentConditions.temp);
+    updateCity(data.address);
     console.log(data.currentConditions.temp);
   } catch (err) {
     console.error('Fetch error: ', err);

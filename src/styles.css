@@ -1,0 +1,181 @@
+/* Root */
+:root {
+    --success-color: #28a745;
+    --info-color: #17a2b8;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+    --light-color: #f8f9fa;
+    --dark-color: #343a40;
+    --complementary-color: #ff7f50; /* Coral */
+    --text-color: #444444; /* Dark Charcoal */
+    --heading-color: #1a1a1a; /* Very Dark Gray */
+    --spacing-xsmall: 0.25rem;
+    --spacing-small: 0.5rem;
+    --spacing-medium: 1rem;
+    --spacing-large: 2rem;
+    --spacing-xlarge: 3rem;
+    --border-radius: 0.25rem;
+    --box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+    --transition: 0.3s;
+}
+
+/* Default Properties */
+body {
+    font-family: 'Lato', sans-serif;
+    color: var(--text-color);
+    margin: 0;
+    height: 100vh; /* Ensure the body takes up the full height */
+    display: flex; /* Allows for flexbox centering */
+    flex-direction: column;
+}
+
+h1, h2, h3 {
+    color: var(--heading-color);
+    margin: 0;
+    font-family: 'Playfair Display', serif; /* Use Playfair Display for headings */
+}
+
+/* Nav bar */
+header {
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    padding: var(--spacing-medium) 0;
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-large);
+    padding: 0 var(--spacing-large); /* Add padding to ensure the nav contents have some space from the edges */
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--dark-color);
+    transition: color var(--transition);
+}
+
+nav a:hover,
+nav a:focus {
+    color: var(--complementary-color); /* Add hover and focus effect */
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo i {
+    font-size: 2rem;
+    color: var(--complementary-color);
+    margin-right: var(--spacing-xsmall);
+}
+
+.logo h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    line-height: 1.2;
+}
+
+/* Search */
+.search-container {
+    flex: 1 1 auto; /* Allows the search container to grow and shrink as needed */
+    display: flex;
+    justify-content: center;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 2rem;
+    box-shadow: var(--box-shadow);
+    padding: 0.25rem 0.5rem;
+    max-width: 400px;
+    width: 100%;
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+    flex: 1;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 2rem;
+}
+
+.search-box button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding-left: 0.5rem;
+    transition: transform var(--transition);
+}
+
+.search-box button:hover,
+.search-box button:focus {
+    transform: scale(1.1); /* Add hover and focus effect */
+}
+
+.search-box button i {
+    font-size: 1.75rem;
+    color: var(--complementary-color);
+}
+
+.search-box input::placeholder {
+    color: var(--text-color);
+}
+
+nav div {
+    margin: 0 var(--spacing-medium);
+}
+
+/* Switches */
+.switch-container {
+    display: flex;
+    align-items: center;
+}
+
+.switch-container i {
+    font-size: 1.75rem;
+    color: var(--complementary-color);
+    transition: color var(--transition);
+}
+
+.switch-container div {
+    margin-right: var(--spacing-small);
+    background-color: var(--light-color);
+    border-radius: 50%;
+    width: 2.5rem; /* Use rem for size */
+    height: 2.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color var(--transition), transform var(--transition), color var(--transition);
+}
+
+.switch-container div:hover,
+.switch-container div:focus {
+    background-color: var(--complementary-color);
+    transform: scale(1.1); /* Add hover and focus effect */
+}
+
+.switch-container div:hover i,
+.switch-container div:focus i {
+    color: var(--light-color); /* Change icon color on hover and focus */
+}
+
+
+/* Main */
+main {
+    flex: 1; /* Takes up the remaining space within the body */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #7ec8e3, #66b2ff, #99d6ff, #cce7ff);
+}
