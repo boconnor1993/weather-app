@@ -17,22 +17,49 @@
     --border-radius: 0.25rem;
     --box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1); /* Subtle box shadow */
     --transition: 0.3s;
+
+    /* Dark Mode Variables */
+    --dark-background-gradient: linear-gradient(135deg, #1a2a40, #233f5a, #3a5574, #516b8e); /* Mimics a night sky */
+    --dark-nav-background: #1a1a1a;
+    --dark-text-color: #f8f9fa; /* Light text */
+    --dark-heading-color: #ffffff; /* White text for headings */
+}
+
+/* Reset and box-sizing */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 /* Default Properties */
-body {
+body, html {
     font-family: 'Lato', sans-serif;
     color: var(--text-color);
     margin: 0;
     height: 100vh; /* Ensure the body takes up the full height */
     display: flex; /* Allows for flexbox centering */
     flex-direction: column;
+    overflow: hidden; /* Prevent scrolling */
+}
+
+body.dark-mode {
+    background: var(--dark-background-gradient);
+    color: var(--dark-text-color);
 }
 
 h1, h2, h3 {
     color: var(--heading-color);
     margin: 0;
     font-family: 'Playfair Display', serif; /* Use Playfair Display for headings */
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3 {
+    color: var(--dark-heading-color);
 }
 
 /* Nav bar */
@@ -43,18 +70,28 @@ header {
     text-align: center;
 }
 
+body.dark-mode header {
+    background-color: var(--dark-nav-background);
+    color: var(--dark-text-color);
+}
+
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: var(--spacing-large);
     padding: 0 var(--spacing-large); /* Add padding to ensure the nav contents have some space from the edges */
+    width: 100%;
 }
 
 nav a {
     text-decoration: none;
     color: var(--dark-color);
     transition: color var(--transition);
+}
+
+body.dark-mode nav a {
+    color: var(--dark-text-color);
 }
 
 nav a:hover,
@@ -99,6 +136,11 @@ nav a:focus {
     width: 100%;
 }
 
+body.dark-mode .search-box {
+    background-color: #333;
+    color: var(--dark-text-color);
+}
+
 .search-box input {
     border: none;
     outline: none;
@@ -126,8 +168,12 @@ nav a:focus {
     color: var(--complementary-color);
 }
 
-.search-box input::placeholder {
+search-box input::placeholder {
     color: var(--text-color);
+}
+
+body.dark-mode .search-box input::placeholder {
+    color: var(--dark-text-color);
 }
 
 nav div {
@@ -170,12 +216,44 @@ nav div {
     color: var(--light-color); /* Change icon color on hover and focus */
 }
 
-
 /* Main */
 main {
-    flex: 1; /* Takes up the remaining space within the body */
+    flex: 1;
+    display: grid;
+    grid-template-columns: 25% 50% 25%; /* Columns: 25%, 50%, 25% */
+    grid-template-rows: 1fr 1fr; /* Two equal rows */
+    gap: var(--spacing-medium); /* Optional: Adjust gap between grid items */
+    background: linear-gradient(135deg, #7ec8e3, #66b2ff, #99d6ff, #cce7ff); /* Re-add background */
+    overflow: hidden; /* Prevents main from causing scrollbars */
+}
+
+body.dark-mode main {
+    background: var(--dark-background-gradient);
+}
+
+.grid-item.top.middle {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(135deg, #7ec8e3, #66b2ff, #99d6ff, #cce7ff);
+    flex-direction: column;
+}
+
+.grid-item.left,
+.grid-item.right {
+    grid-row: span 2; /* Outer columns span two rows */
+}
+
+#temp-container {
+    display: flex;
+    align-items: center;
+}
+
+#temp, #unitGroup {
+    font-size: 7.5rem;
+}
+
+#unitGroup {
+    color: var(--complementary-color);
+    font-size: 5rem;
+    align-self: flex-start;
 }

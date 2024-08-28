@@ -16,7 +16,7 @@ export async function getWeather(city = 'Brisbane', unitGroup = 'metric') {
     }
 
     const data = await response.json();
-    updateTemp(data.currentConditions.temp);
+    updateTemp(data.currentConditions.temp, unitGroup);
     updateCity(data.address);
     console.log(data.currentConditions.temp);
   } catch (err) {

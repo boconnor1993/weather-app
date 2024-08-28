@@ -4,18 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap">
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <title>Weather App</title>
 <script defer src="/bundle.js"></script></head>
 <body>
     <header>
         <nav>
-            <div>Weather</div>
-            <div>Search</div>
-            <div>Celsius</div>
+            <div class="logo"><a href=""><h2><i class='bx bxs-cloud' ></i></i>Weather</h2></a></div>
+            <div class="search-container">
+                <form class="search-box">
+                    <input type="text" placeholder="Search...">
+                    <button type="submit"><i class='bx bx-search'></i></button>
+                </form>
+            </div>
+            <div class="switch-container">
+                <div id="dark-mode"><i class='bx bxs-sun' ></i></div>
+                <div id="celsius"><i class='bx bxs-thermometer' ></i></div>
+            </div>
         </nav>
     </header>
     <main>
-        <div>Hello World test</div>
         <div id="city"></div>
         <div id="temp"></div>
     </main>
