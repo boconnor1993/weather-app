@@ -14,20 +14,34 @@
         <nav>
             <div class="logo"><a href=""><h2><i class='bx bxs-cloud' ></i></i>Weather</h2></a></div>
             <div class="search-container">
-                <form class="search-box">
+                <form class="search-box" onsubmit="event.preventDefault();">
                     <input type="text" placeholder="Search...">
                     <button type="submit"><i class='bx bx-search'></i></button>
                 </form>
+                
             </div>
             <div class="switch-container">
                 <div id="dark-mode"><i class='bx bxs-sun' ></i></div>
-                <div id="celsius"><i class='bx bxs-thermometer' ></i></div>
+                <div id="unitGroup-switch"><i class='bx bxs-thermometer' ></i></div>
             </div>
         </nav>
     </header>
     <main>
-        <div id="city"></div>
-        <div id="temp"></div>
+        <div class="grid-item left">Left Column</div>
+        <div class="grid-item top middle">
+            <div id="temp-container">
+                <div id="temp"></div>
+                <div id="unitGroup"></div>
+            </div>
+            <div id="city"></div>
+        </div>
+        <div class="grid-item right">Right Column</div>
+        <div class="grid-item bottom middle">Middle Column Bottom</div>
+    </main>
+    
+
+
+
     </main>
     <script defer src="index.js"></script>
 </body>

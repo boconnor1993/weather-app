@@ -173,7 +173,7 @@ search-box input::placeholder {
 }
 
 body.dark-mode .search-box input::placeholder {
-    color: var(--dark-text-color);
+    color: var (--dark-text-color);
 }
 
 nav div {
@@ -238,9 +238,42 @@ body.dark-mode main {
     flex-direction: column;
 }
 
+#city {
+    font-size: 2rem;
+}
+
 .grid-item.left,
 .grid-item.right {
     grid-row: span 2; /* Outer columns span two rows */
+    padding: var(--spacing-medium);
+    color: var(--dark-color);
+}
+
+body.dark-mode .grid-item.left,
+body.dark-mode .grid-item.right {
+    color: var(--dark-text-color);
+}
+
+.grid-item.bottom.middle {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* 7 equal columns for 7-day forecast */
+    gap: var(--spacing-small);
+    padding: var(--spacing-medium);
+}
+
+#forecast-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.forecast-item {
+    text-align: center;
+}
+
+.forecast-item img {
+    width: 40px; /* Adjust size as needed */
+    height: 40px;
 }
 
 #temp-container {

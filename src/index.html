@@ -15,7 +15,7 @@
             <div class="logo"><a href=""><h2><i class='bx bxs-cloud' ></i></i>Weather</h2></a></div>
             <div class="search-container">
                 <form class="search-box" onsubmit="event.preventDefault();">
-                    <input type="text" placeholder="Search...">
+                    <input type="text" id="search-input" placeholder="Search...">
                     <button type="submit"><i class='bx bx-search'></i></button>
                 </form>
                 
@@ -27,7 +27,11 @@
         </nav>
     </header>
     <main>
-        <div class="grid-item left">Left Column</div>
+        <div class="grid-item left">
+            <div id="humidity">Humidity: <span></span></div>
+            <div id="wind">Wind: <span></span></div>
+            <div id="pressure">Pressure: <span></span></div>
+        </div>
         <div class="grid-item top middle">
             <div id="temp-container">
                 <div id="temp"></div>
@@ -35,9 +39,17 @@
             </div>
             <div id="city"></div>
         </div>
-        <div class="grid-item right">Right Column</div>
-        <div class="grid-item bottom middle">Middle Column Bottom</div>
+        <div class="grid-item right">
+            <div id="visibility">Visibility: <span></span></div>
+            <div id="uvIndex">UV Index: <span></span></div>
+            <div id="sunrise">Sunrise: <span></span></div>
+            <div id="sunset">Sunset: <span></span></div>
+        </div>
+        <div class="grid-item bottom middle" id="forecast-container">
+            7-day forecast will go here
+        </div>
     </main>
+    
     
 
 
