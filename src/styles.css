@@ -43,6 +43,7 @@ body, html {
     display: flex; /* Allows for flexbox centering */
     flex-direction: column;
     overflow: hidden; /* Prevent scrolling */
+    background: linear-gradient(135deg, #7ec8e3, #66b2ff, #99d6ff, #cce7ff); /* Background for both modes */
 }
 
 body.dark-mode {
@@ -168,12 +169,12 @@ body.dark-mode .search-box {
     color: var(--complementary-color);
 }
 
-search-box input::placeholder {
+.search-box input::placeholder {
     color: var(--text-color);
 }
 
 body.dark-mode .search-box input::placeholder {
-    color: var (--dark-text-color);
+    color: var(--dark-text-color);
 }
 
 nav div {
@@ -223,12 +224,12 @@ main {
     grid-template-columns: 25% 50% 25%; /* Columns: 25%, 50%, 25% */
     grid-template-rows: 1fr 1fr; /* Two equal rows */
     gap: var(--spacing-medium); /* Optional: Adjust gap between grid items */
-    background: linear-gradient(135deg, #7ec8e3, #66b2ff, #99d6ff, #cce7ff); /* Re-add background */
+    background: inherit; /* Inherit background from body */
     overflow: hidden; /* Prevents main from causing scrollbars */
 }
 
 body.dark-mode main {
-    background: var(--dark-background-gradient);
+    background: inherit;
 }
 
 .grid-item.top.middle {
@@ -289,4 +290,19 @@ body.dark-mode .grid-item.right {
     color: var(--complementary-color);
     font-size: 5rem;
     align-self: flex-start;
+}
+
+
+/* Loading Spinner */
+.spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    color: var(--complementary-color);
+}
+
+.hidden {
+    display: none;
 }

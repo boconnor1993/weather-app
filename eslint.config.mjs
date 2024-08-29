@@ -16,12 +16,20 @@ export default [
   ...compat.extends("airbnb-base"),
   ...compat.extends("prettier"),
   {
+    languageOptions: {
+      globals: {
+        document: "readonly", // Add browser global for document
+        window: "readonly",   // Add window global
+        alert: "readonly",    // Add alert global
+      },
+    },
     plugins: {
       prettier: eslintPluginPrettier,
     },
     rules: {
       "prettier/prettier": "error",
       "arrow-body-style": ["error", "always"],
+      "no-alert": "off", // Disable no-alert rule if you want to allow alert usage
     },
   },
 ];

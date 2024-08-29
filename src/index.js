@@ -1,17 +1,33 @@
 import './styles.css';
 import { getWeather } from './api';
 
-let city = 'Brisbane';
-let unitGroup = 'metric';
+let selectedCity = 'Brisbane';
+let selectedUnitGroup = 'metric';
 
-getWeather(city, unitGroup); // Initial weather fetch
+function showLoadingSpinner() {
+  document.getElementById('loading-spinner').style.display = 'block';
+  document.querySelector('main').classList.add('hidden');
+}
 
-// Temperature switch
+function hideLoadingSpinner() {
+  document.getElementById('loading-spinner').style.display = 'none';
+  document.querySelector('main').classList.remove('hidden');
+}
+
+async function loadWeather(city = selectedCity, unitGroup = selectedUnitGroup) {
+  showLoadingSpinner();
+  await getWeather(city, unitGroup);
+  hideLoadingSpinner();
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+  loadWeather(); // Initial weather fetch
+
+  // Temperature switch
   const unitGroupElement = document.getElementById('unitGroup-switch');
   unitGroupElement.addEventListener('click', () => {
-    unitGroup = unitGroup === 'metric' ? 'us' : 'metric';
-    getWeather(city, unitGroup);
+    selectedUnitGroup = selectedUnitGroup === 'metric' ? 'us' : 'metric';
+    loadWeather(selectedCity, selectedUnitGroup);
   });
 
   // Dark mode toggle
@@ -25,8 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
   searchForm.addEventListener('submit', (event) => {
     event.preventDefault();
     const searchInput = document.getElementById('search-input');
-    city = searchInput.value;
-    getWeather(city, unitGroup);
-    searchInput.value = '';
+    selectedCity = searchInput.value;
+    loadWeather(selectedCity, selectedUnitGroup);
   });
 });
