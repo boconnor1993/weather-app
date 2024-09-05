@@ -270,28 +270,47 @@ body.dark-mode .grid-item.right {
 
 .forecast-item {
     text-align: center;
+    font-size: 1rem;
+    padding: var(--spacing-small);
+    width: 100%;
+    font-weight: bold;
 }
 
-.forecast-item img {
-    width: 40px; /* Adjust size as needed */
-    height: 40px;
+.forecast-item i {
+    font-size: 3.5rem; /* Icon size for forecast */
+    color: var(--complementary-color);
 }
 
+#forecast-container .forecast-item {
+    border-right: 1px solid var(--dark-heading-color); /* Add a thin right border */
+}
+
+#forecast-container .forecast-item:last-child {
+    border-right: none; /* Remove the border from the last item */
+}
+
+/* Temperature Icon Styling */
 #temp-container {
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
-#temp, #unitGroup {
-    font-size: 7.5rem;
+#temp-icon {
+    font-size: 5rem; /* Adjust size for the main temperature icon */
+    color: var(--complementary-color); /* Use complementary color */
+    margin-right: var(--spacing-small); /* Space between icon and temperature */
+}
+
+#temp {
+    font-size: 7.5rem; /* Temperature size */
 }
 
 #unitGroup {
-    color: var(--complementary-color);
-    font-size: 5rem;
+    font-size: 3rem; /* Smaller size for the unit */
     align-self: flex-start;
+    color: var(--complementary-color); /* Match color */
 }
-
 
 /* Loading Spinner */
 .spinner {

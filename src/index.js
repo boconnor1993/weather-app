@@ -1,5 +1,5 @@
 import './styles.css';
-import { getWeather } from './api';
+import getWeather from './api';
 
 let selectedCity = 'Brisbane';
 let selectedUnitGroup = 'metric';

@@ -12,21 +12,20 @@
 <body>
     <header>
         <nav>
-            <div class="logo"><a href=""><h2><i class='bx bxs-cloud' ></i></i>Weather</h2></a></div>
+            <div class="logo"><a href=""><h2><i class='bx bxs-cloud'></i>Weather</h2></a></div>
             <div class="search-container">
                 <form class="search-box" onsubmit="event.preventDefault();">
                     <input type="text" id="search-input" placeholder="Search...">
                     <button type="submit"><i class='bx bx-search'></i></button>
                 </form>
-                
             </div>
             <div class="switch-container">
-                <div id="dark-mode"><i class='bx bxs-sun' ></i></div>
-                <div id="unitGroup-switch"><i class='bx bxs-thermometer' ></i></div>
+                <div id="dark-mode"><i class='bx bxs-sun'></i></div>
+                <div id="unitGroup-switch"><i class='bx bxs-thermometer'></i></div>
             </div>
         </nav>
     </header>
-    <main>
+    <main id="main-content">
         <div class="grid-item left">
             <div id="humidity">Humidity: <span></span></div>
             <div id="wind">Wind: <span></span></div>
@@ -46,15 +45,16 @@
             <div id="sunset">Sunset: <span></span></div>
         </div>
         <div class="grid-item bottom middle" id="forecast-container">
-            7-day forecast will go here
+            <!-- 7-day forecast will be dynamically added here -->
         </div>
+        
     </main>
-    
-    
 
+    <!-- Loading Spinner -->
+    <div id="loading-spinner" class="spinner" style="display: none;">
+        <i class="bx bx-loader-alt bx-spin"></i>
+    </div>
 
-
-    </main>
     <script defer src="index.js"></script>
 </body>
 </html>
